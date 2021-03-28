@@ -1,48 +1,65 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const jest = require('jest');
 const fs = require('fs');
 // TODO: Create an array of questions for user input
+// prompt for user info - github username, github profile, email address
 const promptUser = () => {
     return inquirer
         .prompt([
             {
+                // enter a project title
                 type: 'input',
                 name: 'name',
-                message: 'What is the name of your project? (Required)',
-                validate: nameInput => {
-                    if (nameInput) {
-                        return true;
-                    } else {
-                        console.log('You need to enter a project name!');
-                        return false;
-                    }
-                }
+                message: 'enter a project title'
             },
             {
+                // enter a description
                 type: 'input',
                 name: 'description',
-                message: 'Provide a description of the project (Required)',
-                validate: descriptionInput => {
-                    if (descriptionInput) {
-                        return true;
-                    } else {
-                        console.log('You need to enter a project description!');
-                        return false;
-                    }
-                }
+                message: 'enter a description'
             },
             {
-                // Installation
+                // enter installation instructions
+                type: 'input',
+                name: 'installation',
+                message: 'enter installation instructions'
             },
             {
-                // Usage
+                // enter usage information
+                type: 'input',
+                name: 'usage',
+                message: 'enter usage information'
             },
             {
-                // Contributing
+                // enter contribution guidelines
+                type: 'input',
+                name: 'contribution',
+                message: 'enter contribution guidelines'
             },
             {
-                // Tests
+                // enter test instructions
+                type: 'input',
+                name: 'test',
+                message: 'enter test instructions'
+            },
+            {
+                // choose a license for my application from a list of options
+                type: 'checkbox',
+                name: 'licenseType',
+                message: 'choose a license',
+                choices: ['1', '2', '3']
+            },
+            {
+                // enter a GitHub username
+                type: 'input',
+                name: 'githubUsername',
+                message: 'enter a GitHub username'
+            },
+            {
+                // enter an email address
+                type: 'input',
+                name: 'emailAddress',
+                message: 'enter an email address'
             }
         ]);
 };
