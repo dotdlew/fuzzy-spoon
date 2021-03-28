@@ -1,25 +1,14 @@
 {
-  "name": "fuzzy-spoon",
+  "name": "static-site",
   "version": "1.0.0",
-  "description": "9. Node.js Challenge: Professional README Generator",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dotdlew/fuzzy-spoon.git"
-  },
-  "author": "daniel lewis",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dotdlew/fuzzy-spoon/issues"
-  },
-  "homepage": "https://github.com/dotdlew/fuzzy-spoon#readme",
   "dependencies": {
-    "inquirer": "^8.0.0"
-  },
-  "devDependencies": {
-    "jest": "^26.6.3"
+    "inquirer": "^6.3.1"
   }
 }
