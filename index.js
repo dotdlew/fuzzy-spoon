@@ -84,7 +84,7 @@ const promptProject = projectData => {
         .then(data => {
             if (data.confi) {
                 console.log(data);
-                // projectData.projects.push(data);
+                projectData.projects.push(data);
             } else {
                 return promptProject();
             }
