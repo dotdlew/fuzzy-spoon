@@ -1,6 +1,5 @@
-const { writeFile } = require('./utils/generateMarkdown')
+const markdown = require('./utils/generateMarkdown');
 const inquirer = require('inquirer');
-const fs = require('fs');
 
 // prompt for user info - github username, github profile, email address
 function promptUser() {
@@ -19,36 +18,35 @@ function promptUser() {
                 type: 'input',
                 name: 'emailAddress',
                 message: 'enter an email address'
-            },
-            {
-                type: 'confirm',
-                name: 'confirmUser',
-                message: 'confirm user?',
-                default: true
             }
         ]);
 }
 
 const promptProject = projectData => {
     console.log('prompt for project data')
-    inquirer
+    // If there's no 'projects' array property, create one
+    if (!projectData.projects) {
+        projectData.projects = [];
+    }
+
+    return inquirer
         .prompt([
             {
                 // enter a project title
                 type: 'input',
-                name: 'name',
+                name: 'title',
                 message: 'enter a project title'
             },
             {
                 // enter a description
                 type: 'input',
-                name: 'description',
+                name: 'descr',
                 message: 'enter a description'
             },
             {
                 // enter installation instructions
                 type: 'input',
-                name: 'installation',
+                name: 'insta',
                 message: 'enter installation instructions'
             },
             {
@@ -60,29 +58,37 @@ const promptProject = projectData => {
             {
                 // enter contribution guidelines
                 type: 'input',
-                name: 'contribution',
+                name: 'contr',
                 message: 'enter contribution guidelines'
             },
             {
                 // enter test instructions
                 type: 'input',
-                name: 'test',
+                name: 'tests',
                 message: 'enter test instructions'
             },
             {
                 // choose a license for my application from a list of options
                 type: 'checkbox',
-                name: 'licenseType',
+                name: 'licen',
                 message: 'choose a license',
                 choices: ['1', '2', '3']
             },
             {
                 type: 'confirm',
-                name: 'confirmProj',
+                name: 'confi',
                 message: 'confirm project?',
                 default: true
             }
         ])
+        .then(data => {
+            if (data.confi) {
+                console.log(data);
+                // projectData.projects.push(data);
+            } else {
+                return promptProject();
+            }
+        });
 };
 // TODO: Create a function to write README file
 
@@ -90,4 +96,10 @@ const promptProject = projectData => {
 
 // Function call to initialize app
 promptUser()
-    .then(promptProject);
+    .then(promptProject)
+    .then(projectData => {
+        markdown.generatePage(projectData);
+    })
+    .catch(err => {
+        console.log(err);
+    });
