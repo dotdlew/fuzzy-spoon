@@ -1,10 +1,37 @@
-// TODO: Include packages needed for this application
+const { writeFile } = require('./utils/generateMarkdown')
 const inquirer = require('inquirer');
 const fs = require('fs');
-// TODO: Create an array of questions for user input
+
 // prompt for user info - github username, github profile, email address
-const promptUser = () => {
+function promptUser() {
+    console.log('prompt for user data');
+
     return inquirer
+        .prompt([
+            {
+                // enter a GitHub username
+                type: 'input',
+                name: 'githubUsername',
+                message: 'enter a GitHub username'
+            },
+            {
+                // enter an email address
+                type: 'input',
+                name: 'emailAddress',
+                message: 'enter an email address'
+            },
+            {
+                type: 'confirm',
+                name: 'confirmUser',
+                message: 'confirm user?',
+                default: true
+            }
+        ]);
+}
+
+const promptProject = projectData => {
+    console.log('prompt for project data')
+    inquirer
         .prompt([
             {
                 // enter a project title
@@ -50,22 +77,17 @@ const promptUser = () => {
                 choices: ['1', '2', '3']
             },
             {
-                // enter a GitHub username
-                type: 'input',
-                name: 'githubUsername',
-                message: 'enter a GitHub username'
-            },
-            {
-                // enter an email address
-                type: 'input',
-                name: 'emailAddress',
-                message: 'enter an email address'
+                type: 'confirm',
+                name: 'confirmProj',
+                message: 'confirm project?',
+                default: true
             }
-        ]);
+        ])
 };
 // TODO: Create a function to write README file
 
 // TODO: Create a function to initialize app
 
 // Function call to initialize app
-promptUser();
+promptUser()
+    .then(promptProject);
