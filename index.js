@@ -57,10 +57,10 @@ const promptProject = projectData => {
                 message: 'enter usage information'
             },
             {
-                // enter credit guidelines
+                // enter contribution guidelines
                 type: 'input',
-                name: 'credi',
-                message: 'enter credits'
+                name: 'contr',
+                message: 'enter contribution guidelines'
             },
             {
                 // enter test instructions
