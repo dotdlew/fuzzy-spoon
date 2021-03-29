@@ -1,4 +1,5 @@
 const markdown = require('./utils/generateMarkdown');
+const generatePage = require('./src/page-template');
 const inquirer = require('inquirer');
 
 // prompt for user info - github username, github profile, email address
@@ -56,16 +57,16 @@ const promptProject = projectData => {
                 message: 'enter usage information'
             },
             {
-                // enter contribution guidelines
+                // enter credit guidelines
                 type: 'input',
-                name: 'contr',
-                message: 'enter contribution guidelines'
+                name: 'credi',
+                message: 'enter credits'
             },
             {
                 // enter test instructions
                 type: 'input',
                 name: 'tests',
-                message: 'enter test instructions'
+                message: 'enter testing instructions'
             },
             {
                 // choose a license for my application from a list of options
@@ -73,12 +74,6 @@ const promptProject = projectData => {
                 name: 'licen',
                 message: 'choose a license',
                 choices: ['1', '2', '3']
-            },
-            {
-                type: 'confirm',
-                name: 'confi',
-                message: 'confirm project?',
-                default: true
             }
         ])
         .then(data => {
@@ -98,7 +93,7 @@ const promptProject = projectData => {
 promptUser()
     .then(promptProject)
     .then(projectData => {
-        markdown.generatePage(projectData);
+        return generagePage(projectData);
     })
     .catch(err => {
         console.log(err);
