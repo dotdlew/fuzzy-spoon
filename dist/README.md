@@ -1,13 +1,8 @@
-// export function to generate entire page
-module.exports = templateData => {
-    // destructure page data by section
-    const { title, descr, insta, usage, licen, contr, tests, ...header } = templateData;
 
-    return `
-# ${(title)}
+# XON
 
 ## Description 
-${(descr)}
+test proj
 
 ## Table of Contents (Optional)
 
@@ -19,25 +14,24 @@ If your README is very long, add a table of contents to make it easy for users t
 * [License](#license)
 
 ## Installation
-${(insta)}
+./xon
 
 ## Usage 
-${(usage)}
+use it
 
 ## License
-${(licen)}
+1
 
 ## Credits
-${header.githubUsername}, ${header.emailAddress}
+undefined, undefined
 
 ## Contributing
-${(contr)}
+
 
 ## Tests
-${(tests)}
+
 
 ## Questions
 Please direct your questions to my email
-${header.emailAddress}
-    `;
-};
+undefined
+    

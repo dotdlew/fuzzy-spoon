@@ -1,4 +1,4 @@
-const markdown = require('./utils/generateMarkdown');
+const { writeFile } = require('./utils/generateMarkdown');
 const generatePage = require('./src/page-template');
 const inquirer = require('inquirer');
 
@@ -78,6 +78,7 @@ const promptProject = projectData => {
         ])
         .then(data => {
             projectData.projects.push(data);
+            return data;
         });
 };
 // TODO: Create a function to write README file
@@ -89,6 +90,9 @@ promptUser()
     .then(promptProject)
     .then(projectData => {
         return generatePage(projectData);
+    })
+    .then(pageMD => {
+        return writeFile(pageMD);
     })
     .catch(err => {
         console.log(err);
