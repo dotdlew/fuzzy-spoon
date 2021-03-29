@@ -2,7 +2,7 @@
 # fuzzy-spoon
 
 ## Description 
-Node.js Challenge Professional README Generator
+readme-generator
 
 ## Table of Contents (Optional)
 
@@ -12,10 +12,10 @@ Node.js Challenge Professional README Generator
 * [License](#license)
 
 ## Installation
-download the repository; npm install; node index;
+npm install
 
 ## Usage 
-used for generating a decent looking README
+node index.js
 
 ## License
 1
@@ -24,14 +24,14 @@ used for generating a decent looking README
 undefined, undefined
 
 ## Contributing
-clone my repo and issue pull requests
+clone repo
 
 ## Tests
-clone my repo and test with input
+clone repo
 
 ## Questions
 Please direct your questions to my email
 undefined
 
-Made with Fuzzy-Spood README generator
+Made with Fuzzy-Spoon README generator
     
