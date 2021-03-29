@@ -5,10 +5,10 @@ const generateTitle = titleText => {
     `;
 };
 // Description,
-const generateDescription = descriptionText => {
+const generateDescription = descrText => {
     return `
     ## Description
-    ${descriptionText}
+    ${descrText}
     `;
 };
 // Table of Contents,
@@ -19,14 +19,13 @@ const generateToc = () => {
     * [Usage](#usage)
     * [Credits](#credits)
     * [License](#license)
-
     `;
 };
 // Installation,
-const generateInstallation = installationText => {
+const generateInstallation = instaText => {
     return `
     ## Installation
-    ${installationText}
+    ${instaText}
     `;
 };
 // Usage,
@@ -37,17 +36,17 @@ const generateUsage = usageText => {
     `;
 };
 // License,
-const generateLicense = licenseText => {
+const generateLicense = licenText => {
     return `
     ## License
-    ${licenseText}
+    ${licenText}
     `;
 };
-// Credits,
-const generateCredits = creditsText => {
+// Contribution,
+const generateContribution = contrText => {
     return `
-    ## Credits
-    ${creditsText}
+    ## Contribution Guidelines
+    ${contrText}
     `;
 };
 // Tests,
@@ -58,50 +57,59 @@ const generateTests = testsText => {
     `;
 };
 // Questions
-const generateQuestions = questionsText => {
+const generateQuestions = () => {
     return `
     ## Questions
-    ${questionsText}
+    Please direct your questions by email
+    
     `;
 };
 
 // export function to generate entire page
 module.exports = templateData => {
     // destructure page data by section
-    const { title, description, install, usage, license, credits, tests, questions, ...header } = templateData;
+    const { title, descr, insta, usage, licen, contr, tests, ...header } = templateData;
   
     return `
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Portfolio Demo</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-      <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="style.css">
-    </head>
-    
-    <body>
-      <header>
-        <div class="container flex-row justify-space-between align-center py-3">
-          <h1 class="page-title text-secondary bg-dark py-2 px-3">${header.name}</h1>
-          <nav class="flex-row">
-            <a class="ml-2 my-1 px-2 py-1 bg-secondary text-dark" href="https://github.com/${header.github}">GitHub</a>
-          </nav>
-        </div>
-      </header>
-      <main class="container my-5">
-        ${generateAbout(about)}
-        ${generateProjects(projects)}
-      </main>
-      <footer class="container text-center py-3">
-        <h3 class="text-dark">&copy;2020 by ${header.name}</h3>
-      </footer>
-    </body>
-    </html>
+# ${generateTitle(title)}
+
+## Description 
+${generateDescription(descr)}
+
+## Table of Contents (Optional)
+${generateToc()}
+
+
+## Installation
+${generateInstallation(insta)}
+
+## Usage 
+${generateUsage(usage)}
+
+## Credits
+credited
+
+## License
+${generateLicense(licen)}
+---
+
+🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+
+## Badges
+
+![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
+
+Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+
+
+## Contributing
+${generateContribution(contr)}
+
+## Tests
+${generateTests(tests)}
+
+## Questions
+${generateQuestions()}
     `;
   };
   
