@@ -1,12 +1,10 @@
 
-# XON
+# fuzzy-spoon
 
 ## Description 
-test proj
+Node.js Challenge Professional README Generator
 
 ## Table of Contents (Optional)
-
-If your README is very long, add a table of contents to make it easy for users to find what they need.
 
 * [Installation](#installation)
 * [Usage](#usage)
@@ -14,10 +12,10 @@ If your README is very long, add a table of contents to make it easy for users t
 * [License](#license)
 
 ## Installation
-./xon
+download the repository; npm install; node index;
 
 ## Usage 
-use it
+used for generating a decent looking README
 
 ## License
 1
@@ -26,12 +24,14 @@ use it
 undefined, undefined
 
 ## Contributing
-
+clone my repo and issue pull requests
 
 ## Tests
-
+clone my repo and test with input
 
 ## Questions
 Please direct your questions to my email
 undefined
+
+Made with Fuzzy-Spood README generator
     
