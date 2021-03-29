@@ -33,5 +33,5 @@ clone my repo and test with input
 Please direct your questions to my email
 undefined
 
-Made with Fuzzy-Spood README generator
+Made with Fuzzy-Spoon README generator
     

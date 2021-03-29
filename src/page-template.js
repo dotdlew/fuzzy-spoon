@@ -38,6 +38,6 @@ ${(tests)}
 Please direct your questions to my email
 ${header.emailAddress}
 
-Made with Fuzzy-Spood README generator
+Made with Fuzzy-Spoon README generator
     `;
 };
