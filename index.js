@@ -77,12 +77,7 @@ const promptProject = projectData => {
             }
         ])
         .then(data => {
-            if (data.confi) {
-                console.log(data);
-                projectData.projects.push(data);
-            } else {
-                return promptProject();
-            }
+            projectData.projects.push(data);
         });
 };
 // TODO: Create a function to write README file
@@ -93,7 +88,7 @@ const promptProject = projectData => {
 promptUser()
     .then(promptProject)
     .then(projectData => {
-        return generagePage(projectData);
+        return generatePage(projectData);
     })
     .catch(err => {
         console.log(err);

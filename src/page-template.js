@@ -69,7 +69,7 @@ const generateQuestions = () => {
 module.exports = templateData => {
     // destructure page data by section
     const { title, descr, insta, usage, licen, contr, tests, ...header } = templateData;
-  
+
     return `
 # ${generateTitle(title)}
 
@@ -111,5 +111,4 @@ ${generateTests(tests)}
 ## Questions
 ${generateQuestions()}
     `;
-  };
-  
+};
